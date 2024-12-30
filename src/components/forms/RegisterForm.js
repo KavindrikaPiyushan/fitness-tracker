@@ -11,19 +11,19 @@ const RegisterForm = ({ onSubmit }) => {
 
   const handleSubmit = () => {
     const newErrors = {};
-    
+
     if (!validateUsername(username)) {
       newErrors.username = 'Username must be at least 3 characters';
     }
-    
+
     if (!validateEmail(email)) {
       newErrors.email = 'Invalid email address';
     }
-    
+
     if (!validatePassword(password)) {
       newErrors.password = 'Password must be at least 6 characters';
     }
-    
+
     if (password !== confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
     }
@@ -36,7 +36,7 @@ const RegisterForm = ({ onSubmit }) => {
   };
 
   return (
-    <View>
+    <View style={styles.formContainer}>
       <TextInput
         style={[styles.input, errors.username && styles.inputError]}
         placeholder="Username"
@@ -82,30 +82,48 @@ const RegisterForm = ({ onSubmit }) => {
 };
 
 const styles = StyleSheet.create({
+  formContainer: {
+    padding: 24,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    
+    elevation: 5,
+  },
   input: {
     borderWidth: 1,
     borderColor: '#ddd',
-    padding: 12,
+    padding: 16,
     marginBottom: 16,
-    borderRadius: 8,
+    borderRadius: 12,
+    fontSize: 16,
+    color: '#333',
+    backgroundColor: '#F7F9FB', // Soft background color for inputs
   },
   inputError: {
-    borderColor: 'red',
+    borderColor: '#F56565', // Red border for error state
   },
   errorText: {
-    color: 'red',
-    marginBottom: 8,
+    color: '#F56565', // Error text in red
     fontSize: 12,
+    marginBottom: 12,
   },
   button: {
-    backgroundColor: '#007AFF',
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: '#764ba2', // Smooth purple background
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 12,
     alignItems: 'center',
+    marginTop: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 4, // Slight shadow effect for button
   },
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: 18,
   },
 });
 

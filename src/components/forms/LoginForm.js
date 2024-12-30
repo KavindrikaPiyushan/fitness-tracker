@@ -1,84 +1,115 @@
-import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { validateEmail, validatePassword } from '../../utils/validation';
-
-const LoginForm = ({ onSubmit }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({});
-
-  const handleSubmit = () => {
-    const newErrors = {};
-    
-    if (!validateEmail(email)) {
-      newErrors.email = 'Invalid email address';
-    }
-    
-    if (!validatePassword(password)) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      onSubmit({ email, password });
-    }
-  };
-
-  return (
-    <View>
-      <TextInput
-        style={[styles.input, errors.email && styles.inputError]}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-        autoCapitalize="none"
-      />
-      {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
-
-      <TextInput
-        style={[styles.input, errors.password && styles.inputError]}
-        placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
-        secureTextEntry
-      />
-      {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
-
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Login</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  background: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+  },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 40,
+  },
+  logoWrapper: {
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    padding: 25,
+    borderRadius: 100,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    elevation: 8,
+  },
+  logo: {
+    width: 90,
+    height: 90,
+  },
+  welcomeText: {
+    fontSize: 30,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 1, height: 2 },
+    textShadowRadius: 4,
+    textAlign: 'center',
+  },
+  formContainer: {
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
+  formBackground: {
+    borderRadius: 16,
+    padding: 28,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    elevation: 10,
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#4A5568',
+    marginBottom: 6,
+  },
   input: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    fontSize: 16,
+    color: '#2D3748',
     borderWidth: 1,
-    borderColor: '#ddd',
-    padding: 12,
-    marginBottom: 16,
-    borderRadius: 8,
+    borderColor: '#CBD5E0',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   inputError: {
-    borderColor: 'red',
+    borderColor: '#E53E3E',
   },
   errorText: {
-    color: 'red',
-    marginBottom: 8,
-    fontSize: 12,
+    color: '#E53E3E',
+    fontSize: 13,
+    marginTop: 6,
+  },
+  forgotPassword: {
+    alignItems: 'flex-end',
+    marginBottom: 30,
+  },
+  forgotPasswordText: {
+    color: '#FF758C',
+    fontSize: 14,
+    fontWeight: '600',
+    textDecorationLine: 'underline',
   },
   button: {
-    backgroundColor: '#007AFF',
-    padding: 16,
-    borderRadius: 8,
+    borderRadius: 12,
+    overflow: 'hidden',
+    shadowColor: '#FF758C',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 8,
+  },
+  buttonGradient: {
+    paddingVertical: 16,
     alignItems: 'center',
   },
   buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '700',
+    letterSpacing: 1.1,
   },
 });
-
-export default LoginForm;
