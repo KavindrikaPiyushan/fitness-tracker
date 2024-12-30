@@ -24,7 +24,7 @@ const ExerciseCard = ({ exercise, onPress }) => {
           <View style={styles.tag}>
             <Text style={styles.tagText}>{exercise.targetMuscles[0]}</Text>
           </View>
-          <Ionicons name="information-circle-outline" size={20} color="#FF6F61" style={styles.icon} />
+          <Ionicons name="information-circle-outline" size={24} color="#FF6F61" style={styles.icon} />
         </View>
         <Text style={styles.description} numberOfLines={2}>
           {exercise.instructions[0]}
@@ -36,7 +36,7 @@ const ExerciseCard = ({ exercise, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#ffffff', // White background for clarity
     borderRadius: 16,
     marginHorizontal: 16,
     marginVertical: 12,
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
     shadowRadius: 14,
     elevation: 10,
     overflow: 'hidden',
-    borderColor: '#f0f0f0',
+    borderColor: '#f0f0f0', // Soft border color
     borderWidth: 1,
-    backgroundColor: 'linear-gradient(45deg, #764ba2, #764ba2)', // Gradient background
+    flexDirection: 'column', // Stack elements vertically
   },
   image: {
     width: '100%',
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
+    backgroundColor: '#f3f0fa',
   },
   title: {
     fontSize: 22,
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   tag: {
-    backgroundColor: '#764ba2', // Vibrant color for tags
+    backgroundColor: '#764ba2', // Main accent color
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
@@ -84,11 +85,11 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   icon: {
-    marginLeft: 'auto',
-    color:'#764ba2' // Align to the right of the tag
+    marginLeft: 'auto', // Align icon to the right
+    color: '#764ba2', // Icon color for contrast
   },
   description: {
-    color: '#555',
+    color: '#555', // Subtle text color
     fontSize: 15,
     lineHeight: 22,
     fontStyle: 'italic',

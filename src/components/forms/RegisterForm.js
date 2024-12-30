@@ -86,7 +86,10 @@ const styles = StyleSheet.create({
     padding: 24,
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    
+    shadowColor: '#000', // Subtle shadow effect
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
     elevation: 5,
   },
   input: {

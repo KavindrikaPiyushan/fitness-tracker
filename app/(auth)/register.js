@@ -38,14 +38,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24, // Adding horizontal padding for better spacing
   },
   formWrapper: {
-    backgroundColor: '#FFFFFF', // Form background color
-    borderRadius: 20, // Smoother rounded corners
-    padding: 24,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 }, // Increased shadow for depth
-    shadowOpacity: 0.12, // Slightly reduced opacity for a subtle shadow
-    shadowRadius: 12,
-    elevation: 5, // For android shadow
-    marginHorizontal: 16, // Margin to prevent touching screen edges
-  },
+  }
 });
